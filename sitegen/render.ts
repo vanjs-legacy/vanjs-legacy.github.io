@@ -67,7 +67,7 @@ const renderPage = (page: (doc: HTMLDocument) => Element, path: string, file: st
   let docTitle = title
   if (title === "Home") docTitle = "Incredibly Powerful, Insanely Small"
   if (title === "Mini-Van")
-    doc.querySelector("title")!.innerText = "Mini-Van - A Minimalist Template Engine for Client/Server-side Rendering"; else
+    doc.querySelector("title")!.innerText = "Mini-Van (Legacy) - A Minimalist Template Engine for Client/Server-side Rendering"; else
     doc.querySelector("title")!.innerText += " - " + docTitle
   let shortTitle = shortTitleToPath.find(([_, p]) => p === path)![0]
   if (shortTitle === "Home") shortTitle = "VanJS"
