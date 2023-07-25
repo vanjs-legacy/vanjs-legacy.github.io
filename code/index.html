@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="/logo.svg">
+    <title>Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <script type="module">
+      import van from "./mini-van-latest.min.js"
+
+      const {h1, ul, li, a} = van.tags
+
+      const pages = [
+        {Hello: ["hello", "hello-nomodule", "hello-mini", "hello-mini-nomodule", "hello-cdn", "hello-cdn-nomodule", "hello-mini-cdn", "hello-mini-cdn-nomodule"]},
+        "static",
+        {Counters: ["simple-counter", "advanced-counter"]},
+        "connected-props",
+        "hello-fun",
+        "calculator",
+        {"TODO List": ["todo-procedural", "todo-functional"]},
+        "stars",
+        "epoch-converter",
+        "key-inspector",
+        {Diff: ["diff-simple", "diff"]},
+        "json-inspector",
+        "json-csv-table-viewer",
+        {"Auto Complete": ["auto-complete-stateful-dom-func", "auto-complete-derived-props"]},
+        "console",
+      ]
+
+      const ListItem = o => {
+        if (typeof o === "string") return li(a({href: `${o}`}, `${o}`))
+        const [[k, v]] = Object.entries(o)
+        return li(
+          k,
+          ul(v.map(it => ListItem(it))),
+        )
+      }
+
+      van.add(document.body,
+        h1("Cool 🍦VanJS Demos to Show"),
+        ul(pages.map(page => ListItem(page))),
+      )
+    </script>
+  </body>
+</html>
