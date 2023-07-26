@@ -18,6 +18,15 @@ pre[class*=language-], pre[class*=language-].line-numbers>code {
   font-size: 12px;
 }
 
+#banner {
+  background-color: #fff1a8;
+  margin-left: -20px;
+  padding-left: 35px;
+  top: 0;
+  position: sticky;
+  z-index: 2;
+}
+
 header {
   white-space: nowrap;
   /* overflow-x: hidden; */
@@ -352,12 +361,16 @@ textarea {
     scroll-padding-top: 68px;
   }
 
+  #banner {
+    top: 68px;
+  }
+
   #page {
     margin-top: 80px;
   }
 
   #toc {
-    top: 80px;
-    height: calc(100vh - 80px);
+    top: 104px;
+    height: calc(100vh - 104px);
   }
 }
