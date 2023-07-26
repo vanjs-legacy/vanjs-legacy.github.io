@@ -19,6 +19,7 @@ pre[class*=language-], pre[class*=language-].line-numbers>code {
 }
 
 #banner {
+  white-space: normal;
   background-color: #fff1a8;
   margin-left: -20px;
   padding-left: 35px;
@@ -370,7 +371,7 @@ textarea {
   }
 
   #toc {
-    top: 104px;
+    top: 108px;
     height: calc(100vh - 104px);
   }
 }
