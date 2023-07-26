@@ -65,7 +65,7 @@
       const bannerDom = document.getElementById("banner")
       const tocDom = document.getElementById("toc")
 
-      // Adjust the position and height for #toc so that it can fit into the viewport well.
+      // Adjusts the position and height for #toc so that it can fit into the viewport well.
       // This is necessary as the actual height of the banner can be changed when the viewport
       // is resized.
       const setTocStyles = () => {
@@ -73,7 +73,12 @@
         tocDom.style.top = (bottom + 16) + "px"
         tocDom.style.height = (innerHeight - (bottom + 16)) + "px"
       }
-      // Track the current toc item
+      // Sets the "scroll-padding-top" property to account for the banner
+      const setScrollPaddingTop = () => {
+        document.querySelector("html").style["scroll-padding-top"] =
+          bannerDom.getBoundingClientRect().bottom + "px"
+      }
+      // Tracks the current toc item
       const trackToc = () => {
         const allHeadings = [...document.querySelectorAll("h2,h3")]
         const currentHeadingIndex = allHeadings.findIndex(h => h.getBoundingClientRect().top >= 0)
@@ -94,11 +99,14 @@
             e.classList.remove("w3-opacity")
       }
       setTocStyles()
+      setScrollPaddingTop()
       trackToc()
       document.addEventListener("scroll", trackToc)
       addEventListener("resize", setTocStyles)
+      addEventListener("resize", setScrollPaddingTop)
       addEventListener("resize", trackToc)
       addEventListener("load", setTocStyles)
+      addEventListener("load", setScrollPaddingTop)
       addEventListener("load", trackToc)
     </script>
     <script type="text/javascript" src="/prism.js"></script>
