@@ -160,7 +160,7 @@ van.add(document.body, Table({
     p("🎉 Congratulations! You have mastered the skills for building and manipulating DOM trees using ", VanJS(), "'s declarative API, which is incredibly powerful for creating comprehensive applications with elegant code. In the sections below, you will continue to learn how to build reactive applications with state and state binding."),
     p("If your application doesn't rely on state and state binding, you can use the slimmed-down version of ", VanJS(), " - ", Link("Mini-Van", "/minivan"), "."),
     H2("State"),
-    p("A ", Symbol("State"), " object in ", VanJS(), " represents a value that can be updated throughout your application. A ", Symbol("State"), " object has a public property ", Symbol("val"), ", with a ", Link("custom setter", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set"), " that automatically propogates changes to DOM nodes that bind to it. In addition, you can register your event handler to listen to updates of a ", Symbol("State"), " object via its ", Symbol("onnew"), " method."),
+    p("A ", Symbol("State"), " object in ", VanJS(), " represents a value that can be updated throughout your application. A ", Symbol("State"), " object has a public property ", Symbol("val"), ", with a ", Link("custom setter", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set"), " that automatically propagates changes to DOM nodes that bind to it. In addition, you can register your event handler to listen to updates of a ", Symbol("State"), " object via its ", Symbol("onnew"), " method."),
     p("The code below illustrates how a ", Symbol("State"), " object can be used:"),
     Js(`const {button, div, input, sup} = van.tags
 
