@@ -160,7 +160,7 @@ van.add(document.body, Table({
     p("🎉 Congratulations! You have mastered the skills for building and manipulating DOM trees using ", VanJS(), "'s declarative API, which is incredibly powerful for creating comprehensive applications with elegant code. In the sections below, you will continue to learn how to build reactive applications with state and state binding."),
     p("If your application doesn't rely on state and state binding, you can use the slimmed-down version of ", VanJS(), " - ", Link("Mini-Van", "/minivan"), "."),
     H2("State"),
-    p("A ", Symbol("State"), " object in ", VanJS(), " represents a value that can be updated throughout your application. A ", Symbol("State"), " object has a public property ", Symbol("val"), ", with a ", Link("custom setter", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set"), " that automatically propagates changes to DOM nodes that bind to it. In addition, you can register your event handler to listen to updates of a ", Symbol("State"), " object via its ", Symbol("onnew"), " method."),
+    p("A ", Symbol("State"), " object in ", VanJS(), " represents a value that can be updated throughout your application. A ", Symbol("State"), " object has a public property ", Symbol("val"), ", with a ", Link("custom setter", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set"), " that automatically propagates changes to DOM nodes that are bound to it. In addition, you can register your event handler to listen to updates of a ", Symbol("State"), " object via its ", Symbol("onnew"), " method."),
     p("The code below illustrates how a ", Symbol("State"), " object can be used:"),
     Js(`const {button, div, input, sup} = van.tags
 
@@ -204,7 +204,7 @@ van.add(document.body, incrementBtn, resetBtn, dom1, dom2, dom3, dom4)
     }),
     H3("Public interface of ", Symbol("State"), " objects"),
     ul(
-     li("Property ", Symbol(b("val")), " - the current value of the ", Symbol("State"), " object. When a new value of this property is set, all event handlers registered via ", Symbol("onnew"), " method will be called and all DOM nodes that bind to it will be updated accordingly. Note that: while setting ", Symbol("val"), ", if the provided value is the same as the current one, event handlers and DOM updates will be skipped."),
+     li("Property ", Symbol(b("val")), " - the current value of the ", Symbol("State"), " object. When a new value of this property is set, all event handlers registered via ", Symbol("onnew"), " method will be called and all DOM nodes that bound to it will be updated accordingly. Note that: while setting ", Symbol("val"), ", if the provided value is the same as the current one, event handlers and DOM updates will be skipped."),
      li("Method ", Symbol(b("onnew(l)")), " - register an event handler to listen to the updates of the ", Symbol("State"), " object. Whenever a new value is assigned to the state, the event handler ", Symbol("l"), " will be called with 2 arguments: ", Symbol("v"), " and ", Symbol("oldV"), ", representing the new and old value of the state."),
     ),
     p("The value of a ", Symbol("State"), " object can be almost anything, primitive, ", SymLink("Object", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"), ", ", SymLink("Array", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"), ", ", SymLink("null", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null"), ", etc., with 2 ad-hoc exceptions that we made: The value of the ", Symbol("State"), " object cannot be a DOM node, or another ", Symbol("State"), " object. Having values in these 2 types carries little semantic information and is more likely a result of coding bugs. Thus we disallow ", Symbol("State"), " objects to have values in these 2 types. In ", Symbol("van-{version}.debug.js"), ", an explicit error will be thrown if you try to assign a DOM node or another ", Symbol("State"), " object as the value of a state."),
@@ -254,7 +254,7 @@ van.add(document.body, ConnectedProps())
     p(Demo(), " ", span({id: "demo-connected-props"})),
     p({id: "jsfiddle-connected-props"}),
     H3({id: "state-derived-prop"}, Symbol("State"), "-derived properties"),
-    p(Symbol("State"), "-derived property is a more advanced way to bind a property of an HTML element with one or more underlying ", Symbol("State"), " objects. To use ", Symbol("State"), "-derived properties, you need to provide an object with the following fields as the value in ", Symbol("props"), " argument while calling to a ", SymLink("tag function", "#api-tags"), ":"),
+    p(Symbol("State"), "-derived property is a more advanced way to bind a property of an HTML element to one or more underlying ", Symbol("State"), " objects. To use ", Symbol("State"), "-derived properties, you need to provide an object with the following fields as the value in ", Symbol("props"), " argument while calling to a ", SymLink("tag function", "#api-tags"), ":"),
     ul(
       li(Symbol(b("deps")), " - an ", SymLink("Array", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"), " of one or more dependencies."),
       li(Symbol(b("f")), " - a ", Symbol("function"), " that takes the values of states in ", Symbol(b("deps")), " as parameters. The return value of ", Symbol(b("f")), " should always be valid property values, i.e.: primitives or ", Symbol("function"), "s (for event handlers)."),
@@ -283,7 +283,7 @@ van.add(document.body, FontPreview())
     p(Demo(), " ", span({id: "demo-font-preview"})),
     p({id: "jsfiddle-font-preview"}),
     H3("Complex ", Symbol("State"), " binding"),
-    p("You can call ", SymLink("van.bind", "#api-bind"), " to bind an HTML node with one or more ", Symbol("State"), " objects in a custom way, as specified in a generation function that you provide. The following example illustrates this:"),
+    p("You can call ", SymLink("van.bind", "#api-bind"), " to bind an HTML node to one or more ", Symbol("State"), " objects in a custom way, as specified in a generation function that you provide. The following example illustrates this:"),
     Js(`const {input, li, option, select, span, ul} = van.tags
 
 const SortedList = () => {
@@ -316,7 +316,7 @@ van.add(document.body, SortedList())
         deps: li(Symbol(b("dep1")), ", ", Symbol(b("dep2")), ", ..., ", Symbol(b("depN")), " - the dependencies bound to the DOM node."),
         f: ["The generation function, with signature ", InlineJs("f(v1, v2, ..., vN, [dom, oldV1, oldV2, ..., oldVN]) => <primitive, DOM node, null or undefined>"), ". Whenever any value of ", Symbol("dep1"), ", ", Symbol("dep2"), ", ..., ", Symbol("depN"), " changes, ", Symbol("f"), " will be called and returns the new version of the DOM node based on new values of the dependencies. Optionally, ", Symbol("f"), " can take ", Symbol("dom"), " (the current version of the bound DOM node) and ", Symbol("oldV1"), ", ", Symbol("oldV2"), ", ...,", Symbol("oldVN"), " (the old values of the dependencies) as additional parameters to enable ", Link("Stateful binding", "#stateful-binding"), ", which might sometimes choose to mutate existing DOM node instead of generating a new one as an optimization. When ", Symbol("f"), " returns a primitive, a ", SymLink("Text node", "https://developer.mozilla.org/en-US/docs/Web/API/Text"), " will be created based on its content. When ", Symbol("f"), " returns ", Symbol("null"), " or ", Symbol("undefined"), ", the DOM node will removed. Removed DOM node will never be brought back, even when ", Symbol("f"), " would return a non-", Symbol("null"), "/", Symbol("undefined"), " value based on future values of the dependencies."],
       },
-      returns: ["The created DOM node that binds to dependencies."],
+      returns: ["The created DOM node that are bound to dependencies."],
   }),
     H3("Polymorphism between ", Symbol("State"), " and non-", Symbol("State"), " dependencies"),
     MinVersion("0.12.0"),
