@@ -29,7 +29,7 @@ export default (doc: HTMLDocument) => {
         version,
         suffix: ".debug",
         hasDts: true,
-        description: ["The script file for debugging purpose, compared to ", Symbol(`van-${version}.js`), ", it adds additional saninty checks, such as type-checking, including the checkings that are impossible to do with TypeScript. Using this file for development purpose will detect issues earlier and produce more meaningful error messages."],
+        description: ["The script file for debugging purpose, compared to ", Symbol(`van-${version}.js`), ", it adds additional sanity checks, such as type-checking, including the checkings that are impossible to do with TypeScript. Using this file for development purpose will detect issues earlier and produce more meaningful error messages."],
       }),
       DownloadRow({
         version,

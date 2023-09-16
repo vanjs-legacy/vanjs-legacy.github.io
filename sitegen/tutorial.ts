@@ -96,11 +96,11 @@ van.add(document.body, Euler())
     ApiTable({
       signature: "van.tagsNS(namespaceURI) => <the created tags object for elements with specified namespaceURI>",
       description: ["Creates a tags ", SymLink("Proxy", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"), " object similar to ", SymLink("van.tags", "#api-tags"), " for elements with specified ", Symbol("namespaceURI"), "."],
-      parameters: {namespaceURI: ["a string for the ", Symbol("namespaceURI"), " property of elements created via tag fucntions."]},
+      parameters: {namespaceURI: ["a string for the ", Symbol("namespaceURI"), " property of elements created via tag functions."]},
       returns: "The created tags object.",
     }),
     H3({id: "api-add"}, "API reference: ", Symbol("van.add")),
-    p(Symbol("van.add"), " fucntion is similar to tag functions described above. Instead of creating a new HTML element with specified properties and children, ", Symbol("van.add"), " function mutates its first argument (which is an existing ", SymLink("Element node", "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"), ") by appending 0 or more children with ", SymLink("appendChild", "https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild"), " calls:"),
+    p(Symbol("van.add"), " function is similar to tag functions described above. Instead of creating a new HTML element with specified properties and children, ", Symbol("van.add"), " function mutates its first argument (which is an existing ", SymLink("Element node", "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"), ") by appending 0 or more children with ", SymLink("appendChild", "https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild"), " calls:"),
     ApiTable({
       signature: "van.add(dom, ...children) => dom",
       description: ["Mutates ", Symbol("dom"), " by appending 0 or more child nodes to it. Returns  ", Symbol("dom"), " for possibly further chaining."],
@@ -362,7 +362,7 @@ van.add(document.body, EditableList())
   (candidates, selectedIndex, dom, oldCandidates, oldSelectedIndex) => {
     if (dom && candidates === oldCandidates) {
       // If candidate list doesn't change, we don't need to re-render the
-      // suggetion list. Just need to change the selected candidate.
+      // suggestion list. Just need to change the selected candidate.
       dom.querySelector(\`[data-index="\${oldSelectedIndex}"]\`)
         ?.classList?.remove("selected")
       dom.querySelector(\`[data-index="\${selectedIndex}"]\`)

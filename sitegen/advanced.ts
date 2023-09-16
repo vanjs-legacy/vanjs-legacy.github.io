@@ -43,7 +43,7 @@ const dom = div(van.bind(renderPre, TextLine))`),
       li("DOM tree construction needs to be synchronous. i.e.: you shouldn't have any suspension point while building the DOM tree (e.g.: ", Symbol("await"), " something in an ", SymLink("async function", "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"), "). Otherwise, periodic recycling might be scheduled in the middle of the suspension point which can cause bindings to yet-to-be-connected DOM elements being garbage collected."),
     ),
     H3(Symbol("onnew"), " listeners are not subject to GC"),
-    p("Note that, the garbage collection in ", VanJS(), " only removes obsolete bindings. It doesn't apply to event handers registered via ", Symbol("onnew"), " method. For instance, the code below still suffers from memory leaks:"),
+    p("Note that, the garbage collection in ", VanJS(), " only removes obsolete bindings. It doesn't apply to event handlers registered via ", Symbol("onnew"), " method. For instance, the code below still suffers from memory leaks:"),
     Ts(`const renderPre = van.state(false)
 const text = van.state("Text")
 const TextLine = (renderPre: boolean) => {
