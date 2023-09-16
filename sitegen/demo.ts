@@ -233,7 +233,7 @@ const PostBody = ({body}) => article(p(body))
       "data-suffix": "van.add(document.body, EvenNumbers({N: 20}))",
     }),
     H2("TODO List"),
-    p("Similarly, to build reactive applications, you can build in a procedural way, which updates UI via the integration with native DOM API (it's easy to do with ", VanJS(), " as it doens't introduce an ad-hoc virtual-DOM layer), or in a functional/reactive way, which delegates UI changes to ", Link("State Binding", "/tutorial#state-binding"), ". You can also choose a hybrid approach between the 2 paradigms, depending on which approach fits well for a specific problem."),
+    p("Similarly, to build reactive applications, you can build in a procedural way, which updates UI via the integration with native DOM API (it's easy to do with ", VanJS(), " as it doesn't introduce an ad-hoc virtual-DOM layer), or in a functional/reactive way, which delegates UI changes to ", Link("State Binding", "/tutorial#state-binding"), ". You can also choose a hybrid approach between the 2 paradigms, depending on which approach fits well for a specific problem."),
     p("Below is an example of building a ", Symbol("TODO List"), " in a completely procedural way:"),
     Js(`const TodoItem = ({text}) => div(
   input({type: "checkbox", onchange: e =>
@@ -719,7 +719,7 @@ google.charts.setOnLoadCallback(() =>
     p("You can also try out the JavaScript console in ", Link("this standalone page", "/code/console.html"), "."),
     H2("An Improved Unix Shell"),
     p("The final program we're going to demonstrate is a web-based Unix shell that connects to your local computer, with some notable improvements. This is to demonstrate that ", VanJS(), " has the potential to become a great extension to commandline utilities. The program is heavily tested in macOS, and should in theory works in Linux, or in any environment that has ", SymLink("/bin/sh", "https://en.wikipedia.org/wiki/Bourne_shell"), "."),
-    p("Compare to ordinary Unix shell that you're familar with, the web-based shell has 2 notable improvements:"),
+    p("Compare to ordinary Unix shell that you're familiar with, the web-based shell has 2 notable improvements:"),
     ol(
       li("Command ", Symbol("ps ..."), " will render an HTML table instead of text output."),
       li("Command ", Symbol("tree"), " (need the exact text match) will render an interactive tree-view of your current directory, like the one in the screenshot below:", div(img({src: "/tree_screenshot.png", alt: "Tree-view of the current directory"}))),
