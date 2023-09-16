@@ -2,5 +2,8 @@
   "deno.enablePaths": [
     "sitegen/",
     "code/shell.ts"
+  ],
+  "cSpell.words": [
+    "onnew"
   ]
 }

@@ -473,7 +473,7 @@ const AutoComplete = ({words}: {readonly words: readonly string[]}) => {
     (candidates, selectedIndex, dom, oldCandidates, oldSelectedIndex) => {
       if (dom && candidates === oldCandidates) {
         // If the candidate list doesn't change, we don't need to re-render the
-        // suggetion list. Just need to change the selected candidate.
+        // suggestion list. Just need to change the selected candidate.
         dom.querySelector(\`[data-index="\${oldSelectedIndex}"]\`)
           ?.classList?.remove("selected")
         dom.querySelector(\`[data-index="\${selectedIndex}"]\`)
