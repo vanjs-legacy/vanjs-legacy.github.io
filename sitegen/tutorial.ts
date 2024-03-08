@@ -66,7 +66,7 @@ van.add(document.body, Hello())
     }),
     H3("SVG and MathML Support"),
     MinVersion("0.12.0"),
-    p("HTML elements with ", SymLink("namespace URI", "https://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/glossary.html#dt-namespaceURI"), " can be created via ", SymLink("van.tagsNS", "#api-tagsns"), ", a variant of ", Symbol("van.tags"), " that allows you to specify the ", Symbol("namespaceURI"), " of the created elements. Here is an example of composing the SVG DOM tree with ", Symbol("van.tagsNS"), ":"),
+    p("HTML elements with ", SymLink("namespace URI", "https://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/glossary.html#dt-namespaceURI"), " can be created via ", SymLink("van.tagsNS", "#api-tagsns"), ", a variant of ", Symbol("van.tags"), " that allows you to specify the ", Symbol("namespaceURI"), " of the created elements. Here is an example of composing the SVG DOM tree with ", Symbol("van.tagsNS"), ":"),
     Js(`const {circle, path, svg} = van.tagsNS("http://www.w3.org/2000/svg")
 
 const Smiley = () => svg({width: "16px", viewBox: "0 0 50 50"},
@@ -80,7 +80,7 @@ van.add(document.body, Smiley())
 `),
     p(Demo(), " ", span({id: "demo-smiley"})),
     p({id: "jsfiddle-smiley"}),
-    p("Similarly, math formulas can be created with ", SymLink("MathML", "https://developer.mozilla.org/en-US/docs/Web/MathML/Element"), " elements via ", Symbol("van.tagsNS"), ":"),
+    p("Similarly, math formulas can be created with ", SymLink("MathML", "https://developer.mozilla.org/en-US/docs/Web/MathML/Element"), " elements via ", Symbol("van.tagsNS"), ":"),
     Js(`const {math, mi, mn, mo, mrow, msup} = van.tagsNS("http://www.w3.org/1998/Math/MathML")
 
 const Euler = () => math(

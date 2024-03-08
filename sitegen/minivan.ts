@@ -65,7 +65,7 @@ van.add(document.body, Hello())
     p("You can convert any HTML snippet into ", MiniVan(), " code with our online ", Link("converter", "/convert"), "."),
     p(MiniVan(), " is the slimmed-down version of ", Link(VanJS(), "/"), ", which aims to provide an ", BI("ultra-lightweight"), ", ", BI("zero-dependency"), ", and ", BI("unopinionated"), " Reactive UI framework based on pure vanilla JavaScript and DOM. Compared to ", VanJS(), ", ", MiniVan(), " further reduces the gzipped minified bundle size to 0.4kB and can be used on the server-side as a ", Link("template engine", "https://en.wikipedia.org/wiki/Web_template_system"), "."),
     H2("Server-Side: NPM Integration"),
-    p(MiniVan(), " can be used on the server side as a template engine to render dynamic web content for HTTP servers. An NPM package was published here: ", Link("www.npmjs.com/package/mini-van-plate", "https://www.npmjs.com/package/mini-van-plate"), ". Thus it can be used in ", Link("Node.js", "https://nodejs.org/"), " or ", Link("Bun", "https://bun.sh/"), "."),
+    p(MiniVan(), " can be used on the server side as a template engine to render dynamic web content for HTTP servers. An NPM package was published here: ", Link("www.npmjs.com/package/mini-van-plate", "https://www.npmjs.com/package/mini-van-plate"), ". Thus it can be used in ", Link("Node.js", "https://nodejs.org/"), " or ", Link("Bun", "https://bun.sh/"), "."),
     p("There are 2 modes for server-side integration: ", Symbol("van-plate"), " mode (based on text templating, thus doesn't need the DOM dependency), and ", Symbol("mini-van"), " mode (based on DOM, thus needs the DOM dependency)."),
     H3("Install"),
     Shell("npm install mini-van-plate"),
@@ -102,7 +102,7 @@ server.listen(port, hostname, () =>
   console.log(\`Server running at http://\${hostname}:\${port}/\`))
 `),
     p("As illustrated in the example, ", Symbol("render"), " method can be called on the object returned from the ", SymLink("tag function", "/tutorial#api-tags"), " to generate a ", Symbol("string"), " that can be used for serving."),
-    p(Symbol("van.html"), " is a helper function defined in ", Symbol("van-plate.js"), " that is equivalent to:",
+    p(Symbol("van.html"), " is a helper function defined in ", Symbol("van-plate.js"), " that is equivalent to:",
     Js(`(...args) => "<!DOCTYPE html>" + tags.html(...args).render()`)),
     H3({id: "npm-mini-van"}, Symbol("mini-van"), " mode"),
     p("The behavior in ", Symbol("mini-van"), " mode is similar to the behavior in browser context. i.e.: DOM objects will be created by ", SymLink("tag functions", "/tutorial#api-tags"), ". As Node doesn't have the built-in support for DOM objects, you need to provide a 3rd-party ", Symbol("Document"), " object before integrating with ", MiniVan(), " in this mode."),

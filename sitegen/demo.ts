@@ -12,7 +12,7 @@ export default (doc: HTMLDocument) => {
 
   return div({id: "content"},
     H1(VanJS(), ": Learning by Example"),
-    p("Despite being an ", b("ultra-lightweight"), " UI framework, ", VanJS(), " allows you to write incredibly elegant and expressive code for comprehensive application logic. This page is a curated list of cool things you can do with just a few lines of JavaScript code, including several handy utilities built with ", VanJS(), "."),
+    p("Despite being an ", b("ultra-lightweight"), " UI framework, ", VanJS(), " allows you to write incredibly elegant and expressive code for comprehensive application logic. This page is a curated list of cool things you can do with just a few lines of JavaScript code, including several handy utilities built with ", VanJS(), "."),
     p("See also ", Link("Community Examples", "#community-examples"), "."),
     H2("Hello World!"),
     p("This is the ", Symbol("Hello World"), " program shown in the ", Link("Home", "/"), " page:"),
@@ -31,7 +31,7 @@ export default (doc: HTMLDocument) => {
       "data-prefix": "const {a, div, li, p, ul} = van.tags",
       "data-suffix": "van.add(document.body, Hello())",
     }),
-    p("This is the funnier ", Symbol("Hello"), " program shown in ", Link("Getting Started", "/start"), " page:"),
+    p("This is the funnier ", Symbol("Hello"), " program shown in ", Link("Getting Started", "/start"), " page:"),
     Js(`const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 const Run = ({sleepMs}) => {
