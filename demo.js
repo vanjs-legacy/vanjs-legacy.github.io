@@ -1,6 +1,6 @@
 import van from "/code/van-latest.min.js"
 
-const {a, b, button, div, i, input, label, li, p, pre, span, strike, table, tbody, td, textarea, th, thead, tr, ul} = van.tags
+const {a, b, button, del, div, i, input, label, li, p, pre, span, table, tbody, td, textarea, th, thead, tr, ul} = van.tags
 
 {
   const Hello = () => div(
@@ -166,7 +166,7 @@ const {a, b, button, div, i, input, label, li, p, pre, span, strike, table, tbod
     return van.bind(deleted,
       d => d ? null : div(
         input({type: "checkbox", checked: done, onclick: e => done.val = e.target.checked}),
-        van.bind(done, done => done ? strike(text) : span(text)),
+        van.bind(done, done => done ? del(text) : span(text)),
         a({onclick: () => deleted.val = true}, "❌"),
       )
     )

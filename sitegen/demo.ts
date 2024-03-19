@@ -267,7 +267,7 @@ const TodoList = () => {
   return van.bind(deleted,
     d => d ? null : div(
       input({type: "checkbox", checked: done, onclick: e => done.val = e.target.checked}),
-      van.bind(done, done => done ? strike(text) : span(text)),
+      van.bind(done, done => done ? del(text) : span(text)),
       a({onclick: () => deleted.val = true}, "❌"),
     )
   )
@@ -285,7 +285,7 @@ const TodoList = () => {
     p({id: "demo-todo-functional"}),
     p({
       id: "jsfiddle-todo-functional",
-      "data-prefix": "const {a, button, div, input, span, strike} = van.tags",
+      "data-prefix": "const {a, button, del, div, input, span} = van.tags",
       "data-suffix": "van.add(document.body, TodoList())",
       "data-css": "a { cursor: pointer; }\n",
     }),

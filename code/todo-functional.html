@@ -13,14 +13,14 @@
     <script type="module">
       import van from "./van-latest.min.js"
 
-      const {a, button, div, input, span, strike} = van.tags
+      const {a, button, del, div, input, span} = van.tags
 
       const TodoItem = ({text}) => {
         const done = van.state(false), deleted = van.state(false)
         return van.bind(deleted,
           d => d ? null : div(
             input({type: "checkbox", checked: done, onclick: e => done.val = e.target.checked}),
-            van.bind(done, done => done ? strike(text) : span(text)),
+            van.bind(done, done => done ? del(text) : span(text)),
             a({onclick: () => deleted.val = true}, "❌"),
           )
         )
