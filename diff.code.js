@@ -39,10 +39,10 @@ const DiffApp = () => {
       const resultDom = div()
       for (let i = 0; i < diff.length; ) {
         let line
-        if (diff[i].added && diff[i + 1].removed) {
+        if (diff[i].added && diff[i + 1]?.removed) {
           line = DiffLine(diff[i + 1].value, diff[i].value, showMerged)
           i += 2
-        } else if (diff[i].removed && diff[i + 1].added) {
+        } else if (diff[i].removed && diff[i + 1]?.added) {
           line = DiffLine(diff[i].value, diff[i + 1].value, showMerged)
           i += 2
         } else if (diff[i].added) {
