@@ -119,7 +119,7 @@ van.add(document.body, Hello())
     p(Link("Announcement", "https://github.com/vanjs-org/van/discussions/6")),
     DownloadTable({version: "0.11.10"}),
     H3("0.11.9 (First Public Release)"),
-    p("This is the first public release of ", VanJS(), ". See the ", Link("announcement", "https://www.linkedin.com/posts/tao-xin-64234920_github-vanjs-orgvan-vanjs-an-ultra-lightweight-activity-7062813716383219713-CI4O"), "."),
+    p("This is the first public release of ", VanJS(), ". See the ", Link("announcement", "https://www.linkedin.com/posts/taoxin_github-vanjs-orgvan-vanjs-an-ultra-lightweight-activity-7062813716383219713-wPGd"), "."),
     DownloadTable({version: "0.11.9"}),
   )
 }
